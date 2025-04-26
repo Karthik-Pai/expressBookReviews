@@ -12,7 +12,7 @@ public_users.post("/register", (req,res) => {
   if(!username || !password){
     return res.status(400).send({message:"Username and password are required"});
   }else{
-    if(!doesExist(username)){
+    if(!isValid(username)){
       users.push({"username":username, "password":password});
       return res.status(200).send({message:"User added successfully!"});
     }else{
